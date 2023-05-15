@@ -5,6 +5,7 @@ import {
   ViroText,
   ViroTrackingStateConstants,
   ViroARSceneNavigator,
+  Viro3DObject,
 } from '@viro-community/react-viro';
 
 const HelloWorldSceneAR = () => {
@@ -19,13 +20,24 @@ const HelloWorldSceneAR = () => {
     }
   }
 
+  //  return (
+  //    <ViroARScene onTrackingUpdated={onInitialized}>
+  //      <ViroText
+  //        text={text}
+  //        scale={[0.5, 0.5, 0.5]}
+  //        position={[0, 0, -1]}
+  //        style={styles.helloWorldTextStyle}
+  //      />
+  //    </ViroARScene>
+  //  );
+
   return (
     <ViroARScene onTrackingUpdated={onInitialized}>
-      <ViroText
-        text={text}
-        scale={[0.5, 0.5, 0.5]}
-        position={[0, 0, -1]}
-        style={styles.helloWorldTextStyle}
+      <Viro3DObject
+        source={require('./assets/runnerflange.obj')}
+        position={[100, 100, -1000]}
+        scale={[2, 2, 2]}
+        type="OBJ"
       />
     </ViroARScene>
   );
